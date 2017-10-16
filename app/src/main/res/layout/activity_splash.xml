@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="?attr/main_bg">
+
+    <ImageView
+        android:id="@+id/splash_banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/splash_banner_margin_bottom"
+        android:background="@color/white"
+        android:scaleType="centerInside"
+        android:src="@drawable/splash_banner" />
+
+    <ImageView
+        android:id="@+id/splash_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/splash_banner_view"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitXY"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/splash_ad_click_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/splash_view"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10.0dp"
+        android:layout_marginRight="10.0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/viewicon_splash"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/splash_ad_ignore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10.0dp"
+        android:layout_marginTop="8.0dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/splash_skip_real"
+            android:layout_width="wrap_content"
+            android:layout_height="24.0dp"
+            android:layout_gravity="center"
+            android:background="@drawable/splash_ad_ignore_bg"
+            android:gravity="center"
+            android:paddingLeft="10.0dp"
+            android:paddingRight="10.0dp"
+            android:text="@string/splash_ad_ignore"
+            android:textColor="@color/ssxinzi8"
+            android:textSize="12.0sp"/>
+    </FrameLayout>
+</RelativeLayout>

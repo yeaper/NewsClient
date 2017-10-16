@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">仿头条</string>
+
+    <string name="splash_ad_button_text">点击查看</string>
+    <string name="splash_ad_ignore">跳过广告</string>
+
+    <string name="mine_tab_dynamic_title">动态</string>
+    <string name="mine_tab_followings_title">关注</string>
+    <string name="mine_tab_followers_title">粉丝</string>
+
+    <string name="mine_login_hint">登录推荐更精准</string>
+    <string name="mine_item_favorite">收藏</string>
+    <string name="mine_item_day_mode">日间</string>
+    <string name="mine_item_night_mode">夜间</string>
+    <string name="mine_item_settings">设置</string>
+
+</resources>

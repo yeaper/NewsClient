@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="status_bar_height">0dp</dimen>
+    <dimen name="actionbar_height">48dp</dimen>
+
+    <dimen name="splash_banner_margin_bottom">25.0dip</dimen>
+    <dimen name="splash_ad_ignore">36.0dip</dimen>
+    <dimen name="my_page_item_divider_height">10.0dip</dimen>
+</resources>
