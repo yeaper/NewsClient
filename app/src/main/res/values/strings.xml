@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">仿头条</string>
 
+    <string name="feed_search_tip">搜你想搜的</string>
+
     <string name="splash_ad_button_text">点击查看</string>
     <string name="splash_ad_ignore">跳过广告</string>
 

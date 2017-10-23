@@ -11,19 +11,25 @@
 
 
     <color name="ssxinhongse1">#fff85959</color>
+    <color name="ssxinbaise1">#ffffffff</color>
     <color name="ssxinbaise1_press">#fff0f0f0</color>
     <color name="ssxinbaise4">#ffffffff</color>
     <color name="ssxinheise5">#26000000</color>
+    <color name="ssxinmian4">@color/ssxinbaise1</color>
     <color name="ssxinmian4_press">@color/ssxinbaise1_press</color>
     <color name="ssxinmian4_press_night">@color/ssxinyejianheise2_press</color>
+    <color name="ssxinmian7">@color/ssxinhongse1</color>
     <color name="ssxinmian16">@color/ssxinheise5</color>
-    <color name="ssxinzi7">@color/ssxinbaise4</color>
-    <color name="ssxinzi8">@color/ssxinbaise4</color>
     <color name="ssxinyejianheise2_press">#ff1b1b1b</color>
     <color name="ssxinheihui1">#ff222222</color>
+    <color name="ssxinheihui2">#ff505050</color>
     <color name="ssxinheihui3">#ff999999</color>
+    <color name="ssxinheihui4">#eaeaea</color>
     <color name="ssxinheihui10_press">#7f979fac</color>
+    <color name="ssxinzi2">@color/ssxinheihui2</color>
     <color name="ssxinzi3">@color/ssxinheihui3</color>
+    <color name="ssxinzi7">@color/ssxinbaise4</color>
+    <color name="ssxinzi8">@color/ssxinbaise4</color>
     <color name="ssxinzi10">@color/ssxinbaise4</color>
     <color name="ssxinzi12">@color/ssxinbaise4</color>
     <color name="ss_menu_text">#ff333333</color>

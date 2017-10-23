@@ -4,8 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +16,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 今日头条的数据加载控件
+ */
 public class LoadingFlashView extends FrameLayout {
 
-    private View mFlashView;
     private ImageView mLoad1;
     private ImageView mLoad2;
     private ImageView mLoad3;
@@ -41,7 +41,7 @@ public class LoadingFlashView extends FrameLayout {
     }
 
     private void initView(Context context, AttributeSet attrs, int defStyleAttr) {
-        mFlashView = LayoutInflater.from(context).inflate(R.layout.loading_flash_view, this);
+        LayoutInflater.from(context).inflate(R.layout.loading_flash_view, this);
     }
 
     @Override
@@ -53,6 +53,9 @@ public class LoadingFlashView extends FrameLayout {
         mLoad4 = findViewById(R.id.load4);
     }
 
+    /**
+     * 显示加载控件
+     */
     public void showLoading() {
         if (getVisibility() != View.VISIBLE)
             return;
@@ -60,49 +63,47 @@ public class LoadingFlashView extends FrameLayout {
             initAnimation();
         if (mAnimatorSet.isRunning() || mAnimatorSet.isStarted())
             return;
+        // 开启动画
         mAnimatorSet.start();
     }
 
+    /**
+     * 隐藏加载控件
+     */
     public void hideLoading() {
         if (mAnimatorSet == null)
             return;
         if ((!mAnimatorSet.isRunning()) && (!mAnimatorSet.isStarted()))
             return;
+        // 结束动画
         mAnimatorSet.removeAllListeners();
         mAnimatorSet.cancel();
         mAnimatorSet.end();
     }
 
-
+    /**
+     * 初始化动画
+     */
     private void initAnimation() {
         mAnimatorSet = new AnimatorSet();
 
+        // 为 今日头条 四个字分别设置动画
         List<ImageView> imageViewList = Arrays.asList(mLoad1, mLoad2, mLoad3, mLoad4);
         List<Animator> animatorList = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
+            // 生成透明度动画
             ObjectAnimator loadAnimator = ObjectAnimator.ofFloat(imageViewList.get(i), "alpha", new float[]{1.0F, 0.5F}).setDuration(500L);
+            // 设置开始的时间
             loadAnimator.setStartDelay(100 * i);
+            // 设置重复模式：逆向重复
             loadAnimator.setRepeatMode(ObjectAnimator.REVERSE);
+            // 无限循环
             loadAnimator.setRepeatCount(-1);
             animatorList.add(loadAnimator);
         }
-        mAnimatorSet.playTogether(animatorList);
-    }
 
-    public void setLoadingTheme(boolean isNight) {
-        if (isNight) {
-            PorterDuffColorFilter localPorterDuffColorFilter = new PorterDuffColorFilter(getResources()
-                    .getColor(R.color.subscribe_category_bar_bg_night), PorterDuff.Mode.SRC_ATOP);
-            mLoad1.setColorFilter(localPorterDuffColorFilter);
-            mLoad2.setColorFilter(localPorterDuffColorFilter);
-            mLoad3.setColorFilter(localPorterDuffColorFilter);
-            mLoad4.setColorFilter(localPorterDuffColorFilter);
-        } else {
-            mLoad1.setColorFilter(null);
-            mLoad2.setColorFilter(null);
-            mLoad3.setColorFilter(null);
-            mLoad4.setColorFilter(null);
-        }
+        // 同时进行动画
+        mAnimatorSet.playTogether(animatorList);
     }
 
     @Override

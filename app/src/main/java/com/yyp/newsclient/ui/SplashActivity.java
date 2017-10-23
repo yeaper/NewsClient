@@ -1,4 +1,4 @@
-package com.yyp.newsclient.view;
+package com.yyp.newsclient.ui;
 
 import android.os.Bundle;
 import android.text.TextUtils;

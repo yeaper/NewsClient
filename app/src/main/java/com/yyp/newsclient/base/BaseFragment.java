@@ -21,6 +21,7 @@ import rx.Subscription;
  * Created by yyp on 2017/10/11.
  */
 public abstract class BaseFragment extends Fragment {
+
     protected Activity mContext;
     protected boolean mIsFirstVisible = true;
     protected View rootView;
@@ -160,6 +161,10 @@ public abstract class BaseFragment extends Fragment {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * 打印日志
+     * @param msg
+     */
     protected void showLog(String msg) {
         Logger.i(msg);
     }
@@ -177,6 +182,5 @@ public abstract class BaseFragment extends Fragment {
     public void post(Notice msg) {
         RxBus.getDefault().post(msg);
     }
-
 }
 

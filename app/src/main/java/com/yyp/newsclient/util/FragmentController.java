@@ -5,8 +5,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.yyp.newsclient.view.home.HomeFragment;
-import com.yyp.newsclient.view.me.MeFragment;
+import com.yyp.newsclient.ui.home.HomeFragment;
+import com.yyp.newsclient.ui.me.MeFragment;
+import com.yyp.newsclient.ui.video.VideoFragment;
 
 import java.util.ArrayList;
 
@@ -45,7 +46,7 @@ public class FragmentController {
         if (isReload) {
 
             fragments.add(new HomeFragment());
-            fragments.add(new HomeFragment());
+            fragments.add(new VideoFragment());
             fragments.add(new MeFragment());
 
             FragmentTransaction ft = fm.beginTransaction();

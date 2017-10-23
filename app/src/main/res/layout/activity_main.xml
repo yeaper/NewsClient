@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yyp.newsclient.view.MainActivity"
+    tools:context="com.yyp.newsclient.ui.MainActivity"
     android:background="@color/bg_color">
     <FrameLayout
         android:id="@+id/fl_content"

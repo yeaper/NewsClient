@@ -1,6 +1,7 @@
 package com.yyp.newsclient.widget;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -11,15 +12,19 @@ import android.widget.TextView;
 
 import com.yyp.newsclient.R;
 import com.yyp.newsclient.interfaces.OnBottomBarClickListener;
+import com.yyp.newsclient.theme.ColorUiInterface;
+import com.yyp.newsclient.theme.util.ViewAttributeUtil;
 
 /**
  * 首页底部导航栏控件
  * Created by yyp on 2017/10/10.
  */
-public class MainBottomBar extends LinearLayout {
+public class MainBottomBar extends LinearLayout implements ColorUiInterface {
 
     private Context ctx;
     private OnBottomBarClickListener onBottomBarClickListener;
+
+    private int attr_background = -1;
 
     public MainBottomBar(Context context) {
         super(context);
@@ -28,10 +33,13 @@ public class MainBottomBar extends LinearLayout {
     public MainBottomBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.ctx = context;
+
+        this.attr_background = ViewAttributeUtil.getBackgroundAttibute(attrs);
     }
 
     public MainBottomBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.attr_background = ViewAttributeUtil.getBackgroundAttibute(attrs);
     }
 
     public void addItem(@DrawableRes int normal1, @DrawableRes int click1, @DrawableRes int normal2, @DrawableRes int click2, String text){
@@ -82,5 +90,17 @@ public class MainBottomBar extends LinearLayout {
                 }
             });
         }
+    }
+
+    //--------------------------动态换主题----------------------
+    @Override
+    public View getView() {
+        return this;
+    }
+
+    @Override
+    public void setTheme(Resources.Theme themeId) {
+        if(attr_background!=-1)
+            ViewAttributeUtil.applyBackgroundDrawable(this, themeId, attr_background);
     }
 }
