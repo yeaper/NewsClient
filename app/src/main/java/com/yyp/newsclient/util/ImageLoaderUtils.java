@@ -1,47 +1,66 @@
 package com.yyp.newsclient.util;
 
-import android.graphics.Bitmap;
+import android.content.Context;
 import android.widget.ImageView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class ImageLoaderUtils {
 
-    public static ImageLoader getImageLoader() {
-        return ImageLoader.getInstance();
+    public static RequestManager getImageLoader(Context ctx) {
+        return Glide.with(ctx);
     }
 
-
-    public static PauseOnScrollListener getPauseOnScrollListener() {
-        return new PauseOnScrollListener(getImageLoader(), true, true);
+    /**
+     * 加载普通图片
+     * @param ctx
+     * @param url
+     * @param view
+     */
+    public static void loadCommonImage(Context ctx, String url, ImageView view) {
+        getImageLoader(ctx).load(url)
+                .thumbnail(0.5f)
+                .into(view);
     }
 
-
-    public static void displayImage(String uri, ImageView view) {
-        getImageLoader().displayImage(uri, view, ImageOptHelper.getImgOptions());
+    /**
+     * 加载大图
+     * @param ctx
+     * @param url
+     * @param view
+     */
+    public static void loadBigImage(Context ctx, String url, ImageView view) {
+        getImageLoader(ctx).load(url)
+                .thumbnail(0.5f)
+                .into(view);
     }
 
-
-    public static void displayAvatar(String uri, ImageView view) {
-        getImageLoader().displayImage(uri, view, ImageOptHelper.getAvatarOptions());
+    /**
+     * 加载圆形头像
+     * @param ctx
+     * @param url
+     * @param view
+     */
+    public static void loadCircleAvatar(Context ctx, String url, ImageView view) {
+        getImageLoader(ctx).load(url)
+                .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+                .into(view);
     }
 
-    public static void displayBigImage(String uri, ImageView view) {
-        displayBigImage(uri, view, null);
+    /**
+     * 加载高斯模糊后的图片
+     * @param ctx
+     * @param url
+     * @param view
+     */
+    public static void loadBlurImage(Context ctx, String url, ImageView view) {
+        getImageLoader(ctx).load(url)
+                .apply(RequestOptions.bitmapTransform(new BlurTransformation()))
+                .into(view);
     }
-
-    public static void displayBigImage(String uri, ImageView view, SimpleImageLoadingListener listener) {
-        getImageLoader().displayImage(uri, view, ImageOptHelper.getBigImgOptions(), listener);
-    }
-
-    public static void loadImage(String path, final SimpleImageLoadingListener listener) {
-        getImageLoader().loadImage(path, listener);
-    }
-
-    public interface LoadingListener {
-        void onLoadingComplete(Bitmap loadedImage);
-    }
-
 }

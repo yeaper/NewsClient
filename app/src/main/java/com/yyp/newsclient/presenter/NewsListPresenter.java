@@ -21,8 +21,8 @@ public class NewsListPresenter extends BasePresenter<INewsListView> {
             }
 
             @Override
-            protected void onMError(Throwable e) {
-                mvpView.onError(e);
+            protected void onMError(String error) {
+                mvpView.onError(error);
             }
 
             @Override

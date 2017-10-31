@@ -90,7 +90,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return mSwipeBackLayout;
     }
 
-
     public void setLayoutInflaterFactory() {
         LayoutInflater layoutInflater = getLayoutInflater();
         try {
@@ -103,6 +102,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *  初始化一个线性布局的RecyclerView
+     *  当布局中有id为recyclerView，可调用该方法
+     * @param adapter
+     * @param decoration
+     * @return
+     */
     public RecyclerView initCommonRecyclerView(BaseQuickAdapter adapter, RecyclerView.ItemDecoration decoration) {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         return initCommonRecyclerView(recyclerView, adapter, decoration);

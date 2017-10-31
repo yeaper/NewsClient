@@ -4,30 +4,42 @@
     <color name="colorPrimaryDark">@color/ssxinhongse1</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="black">#000000</color>
     <color name="bg_color">#e7e7e7</color>
     <color name="status_color">#d5d5d5</color>
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
 
+    <color name="heise1">#ff464646</color>
+    <color name="action_comment_text">#fffafafa</color>
 
     <color name="ssxinhongse1">#fff85959</color>
+    <color name="ssxinyejianhongse1">#ff935656</color>
+    <color name="ssxinyejianjiangexian1">#ff464646</color>
+    <color name="ssxinyejianheise2">#ff252525</color>
     <color name="ssxinbaise1">#ffffffff</color>
     <color name="ssxinbaise1_press">#fff0f0f0</color>
     <color name="ssxinbaise4">#ffffffff</color>
     <color name="ssxinheise5">#26000000</color>
+    <color name="ssxinmian3">@color/ssxinheihui6</color>
     <color name="ssxinmian4">@color/ssxinbaise1</color>
     <color name="ssxinmian4_press">@color/ssxinbaise1_press</color>
     <color name="ssxinmian4_press_night">@color/ssxinyejianheise2_press</color>
+    <color name="ssxinmian4_night">@color/ssxinyejianheise2</color>
     <color name="ssxinmian7">@color/ssxinhongse1</color>
+    <color name="ssxinmian7_night">@color/ssxinyejianhongse1</color>
     <color name="ssxinmian16">@color/ssxinheise5</color>
     <color name="ssxinyejianheise2_press">#ff1b1b1b</color>
     <color name="ssxinheihui1">#ff222222</color>
     <color name="ssxinheihui2">#ff505050</color>
     <color name="ssxinheihui3">#ff999999</color>
+    <color name="ssxinheihui3_press">#7f999999</color>
     <color name="ssxinheihui4">#eaeaea</color>
+    <color name="ssxinheihui6">#fff4f5f6</color>
     <color name="ssxinheihui10_press">#7f979fac</color>
     <color name="ssxinzi2">@color/ssxinheihui2</color>
     <color name="ssxinzi3">@color/ssxinheihui3</color>
+    <color name="ssxinzi3_press">@color/ssxinheihui3_press</color>
     <color name="ssxinzi7">@color/ssxinbaise4</color>
     <color name="ssxinzi8">@color/ssxinbaise4</color>
     <color name="ssxinzi10">@color/ssxinbaise4</color>
@@ -42,7 +54,10 @@
     <color name="default_window_bg_night">#ff1a1b1d</color>
 
     <color name="ssxinjiangexian1">#ffe8e8e8</color>
+    <color name="ssxinjiangexian2">#ffd8d8d8</color>
     <color name="ssxinxian1">@color/ssxinjiangexian1</color>
+    <color name="ssxinxian7">@color/ssxinjiangexian2</color>
+    <color name="ssxinxian7_night">@color/ssxinyejianjiangexian1</color>
     <color name="fengexian5">#ffe6e6e6</color>
     <color name="write_comment_divider_color">@color/fengexian5</color>
 

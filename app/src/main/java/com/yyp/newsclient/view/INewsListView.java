@@ -10,5 +10,5 @@ import java.util.List;
 public interface INewsListView {
     void onGetNewsListSuccess(List<News> response);
 
-    void onError(Throwable e);
+    void onError(String error);
 }

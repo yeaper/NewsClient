@@ -1,5 +1,6 @@
 package com.yyp.newsclient.ui.adapter;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -16,8 +17,11 @@ import java.util.List;
 
 public class NewsAdapter extends BaseQuickAdapter<News> {
 
-    public NewsAdapter(List<News> data) {
+    private Context ctx;
+
+    public NewsAdapter(Context context,List<News> data) {
         super(R.layout.item_news, data);
+        this.ctx = context;
     }
 
     @Override
@@ -33,7 +37,7 @@ public class NewsAdapter extends BaseQuickAdapter<News> {
                 if (news.image_list == null || news.image_list.size() == 0) {
                     if (!TextUtils.isEmpty(news.image_url)) {
                         //单图片文章
-                        ImageLoaderUtils.displayImage(news.image_url, (ImageView) baseViewHolder.getView(R.id.ivRightImg1));
+                        ImageLoaderUtils.loadCommonImage(ctx, news.image_url, (ImageView) baseViewHolder.getView(R.id.ivRightImg1));
                         baseViewHolder.setVisible(R.id.rlRightImg, true)
                                 .setVisible(R.id.viewFill, true);
                     }
@@ -41,9 +45,9 @@ public class NewsAdapter extends BaseQuickAdapter<News> {
                     //3张图片
                     baseViewHolder.setVisible(R.id.llCenterImg, true);
                     try {
-                        ImageLoaderUtils.displayImage(news.image_list.get(0).url, (ImageView) baseViewHolder.getView(R.id.ivCenterImg1));
-                        ImageLoaderUtils.displayImage(news.image_list.get(1).url, (ImageView) baseViewHolder.getView(R.id.ivCenterImg2));
-                        ImageLoaderUtils.displayImage(news.image_list.get(2).url, (ImageView) baseViewHolder.getView(R.id.ivCenterImg3));
+                        ImageLoaderUtils.loadCommonImage(ctx, news.image_list.get(0).url, (ImageView) baseViewHolder.getView(R.id.ivCenterImg1));
+                        ImageLoaderUtils.loadCommonImage(ctx, news.image_list.get(1).url, (ImageView) baseViewHolder.getView(R.id.ivCenterImg2));
+                        ImageLoaderUtils.loadCommonImage(ctx, news.image_list.get(2).url, (ImageView) baseViewHolder.getView(R.id.ivCenterImg3));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -51,17 +55,17 @@ public class NewsAdapter extends BaseQuickAdapter<News> {
                 break;
             case ConstanceValue.ARTICLE_GENRE_GALLERY: // 画廊类型
                 if (news.image_list == null || news.image_list.size() == 0) {
-                    ImageLoaderUtils.displayImage(news.image_url, (ImageView) baseViewHolder.getView(R.id.ivRightImg1));
+                    ImageLoaderUtils.loadCommonImage(ctx, news.image_url, (ImageView) baseViewHolder.getView(R.id.ivRightImg1));
                     baseViewHolder.setVisible(R.id.rlRightImg, true)
                             .setVisible(R.id.viewFill, true);
                 } else {
-                    ImageLoaderUtils.displayImage(news.image_list.get(0).url, (ImageView) baseViewHolder.getView(R.id.ivBigImg));
+                    ImageLoaderUtils.loadCommonImage(ctx, news.image_list.get(0).url, (ImageView) baseViewHolder.getView(R.id.ivBigImg));
                     baseViewHolder.setVisible(R.id.rlBigImg, true)
                             .setText(R.id.tvImgCount, news.image_list.size() + "图");
                 }
                 break;
             case ConstanceValue.ARTICLE_GENRE_VIDEO: // 视频类型
-                ImageLoaderUtils.displayImage(news.image_url, (ImageView) baseViewHolder.getView(R.id.ivRightImg1));
+                ImageLoaderUtils.loadCommonImage(ctx, news.image_url, (ImageView) baseViewHolder.getView(R.id.ivRightImg1));
                 baseViewHolder.setVisible(R.id.rlRightImg, true)
                         .setVisible(R.id.viewFill, true)
                         .setVisible(R.id.llVideo, true)

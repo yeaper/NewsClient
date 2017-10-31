@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black">
+    <com.yyp.photoview.PhotoView
+        android:id="@+id/gallery_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerInside"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#88333333"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/gallery_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            tools:text="1/4"/>
+        <TextView
+            android:id="@+id/gallery_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:lineSpacingMultiplier="1.2"
+            tools:text="内容"/>
+    </LinearLayout>
+</FrameLayout>

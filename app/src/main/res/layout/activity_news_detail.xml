@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/news_detail_root">
+    android:orientation="vertical"
+    android:id="@+id/news_detail_root"
+    android:background="@color/white">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <include layout="@layout/toolbar_common"/>
+
+    <ScrollView
+        android:id="@+id/news_detail_sv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.yyp.newsclient.widget.NewsDetailHeaderView
+                android:id="@+id/news_detail_header_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.yyp.newsclient.widget.NewsDetailWebView
+                android:id="@+id/news_detail_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <include layout="@layout/layout_recyclerview" />
+        </LinearLayout>
+    </ScrollView>
 
-    <FrameLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <include layout="@layout/pop_window_bottombar" />
-    </FrameLayout>
+        android:layout_height="0.5dip"
+        android:background="@color/ssxinxian7"/>
 
-</RelativeLayout>
+    <include layout="@layout/news_detail_bottom_bar" />
+
+</LinearLayout>

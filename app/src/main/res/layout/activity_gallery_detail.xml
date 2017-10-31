@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <include layout="@layout/toolbar_common_transparent"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/gallery_detail_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <include layout="@layout/gallery_detail_bottom_bar"/>
+</LinearLayout>

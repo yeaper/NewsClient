@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/toolbar_common_style"
+    app:contentInsetStart="0dp"
+    app:isColorUi="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/leftbackicon_titlebar"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            app:isColorUi="true"/>
+
+        <ImageView
+            android:id="@+id/share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="4.0dip"
+            android:paddingRight="8.0dip"
+            android:scaleType="center"
+            android:src="@drawable/btn_more_title_detail"
+            app:isColorUi="true"/>
+
+        <LinearLayout
+            android:id="@+id/toolbar_center_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/back_btn"
+            android:layout_toLeftOf="@id/share_btn"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    style="@style/new_title"
+                    android:layout_width="match_parent"
+                    tools:text="作者"
+                    android:textColor="?attr/font_color"
+                    android:textSize="15sp"
+                    app:isColorUi="true" />
+
+                <TextView
+                    android:id="@+id/tvFansCount"
+                    style="@style/new_title"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="2dp"
+                    tools:text="0"
+                    android:textColor="?attr/font_color2"
+                    android:textSize="12sp"
+                    app:isColorUi="true" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:background="@drawable/shape_rectangle_blue"
+                android:text="@string/mine_tab_followings_title"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/heise1"
+            android:textSize="@dimen/title_bar_text_size"
+            android:visibility="gone"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/ssxinxian7"/>
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

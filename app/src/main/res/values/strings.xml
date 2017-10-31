@@ -16,4 +16,6 @@
     <string name="mine_item_night_mode">夜间</string>
     <string name="mine_item_settings">设置</string>
 
+    <string name="detail_write_comment">写评论…</string>
+
 </resources>

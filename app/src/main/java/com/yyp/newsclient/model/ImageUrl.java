@@ -1,9 +1,13 @@
 package com.yyp.newsclient.model;
 
-public class ImageUrl {
-    public String url;
+import java.io.Serializable;
 
-    public ImageUrl(String url) {
+public class ImageUrl implements Serializable {
+    public String url;
+    public String description;
+
+    public ImageUrl(String url, String description) {
         this.url = url;
+        this.description = description;
     }
 }

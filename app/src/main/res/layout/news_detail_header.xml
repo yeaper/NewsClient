@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/main_bg"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/news_detail_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/font_color"
+        android:textSize="22sp"
+        app:isColorUi="true"
+        tools:text="珍藏了得得" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/news_detail_header_avatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/news_detail_header_username"
+                style="@style/new_title"
+                android:layout_width="match_parent"
+                tools:text="作者"
+                android:textColor="?attr/font_color"
+                android:textSize="15sp"
+                app:isColorUi="true" />
+
+            <TextView
+                android:id="@+id/news_detail_header_date"
+                style="@style/new_title"
+                android:layout_width="match_parent"
+                android:layout_marginTop="2dp"
+                tools:text="时间"
+                android:textColor="?attr/font_color2"
+                android:textSize="12sp"
+                app:isColorUi="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/news_detail_header_follow"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/shape_rectangle_blue"
+            android:text="@string/mine_tab_followings_title"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>

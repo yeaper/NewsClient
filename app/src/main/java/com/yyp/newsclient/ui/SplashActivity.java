@@ -50,7 +50,7 @@ public class SplashActivity extends BaseActivity {
                 .doOnSubscribe(new Action0() {
                     @Override
                     public void call() {
-                        ImageLoaderUtils.displayBigImage("http://www.3vsheji.com/uploads/allimg/151222/1F92594D_0.jpg", mSplashView);
+                        ImageLoaderUtils.loadBigImage(mContext, "http://www.3vsheji.com/uploads/allimg/151222/1F92594D_0.jpg", mSplashView);
                         mAdClickSmall.setVisibility(View.VISIBLE);
                         mSplashView.setVisibility(View.VISIBLE);
                         mAdIgnore.setVisibility(View.VISIBLE);
