@@ -17,5 +17,8 @@
     <string name="mine_item_settings">设置</string>
 
     <string name="detail_write_comment">写评论…</string>
+    <string name="detail_reply">回复</string>
+    <string name="detail_report">举报</string>
+    <string name="all_comment">全部评论</string>
 
 </resources>

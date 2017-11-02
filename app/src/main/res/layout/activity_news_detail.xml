@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/news_detail_root"
     android:background="@color/white">
@@ -21,19 +22,27 @@
             <com.yyp.newsclient.widget.NewsDetailHeaderView
                 android:id="@+id/news_detail_header_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
             <com.yyp.newsclient.widget.NewsDetailWebView
                 android:id="@+id/news_detail_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/layout_recyclerview" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/news_detail_recyclerview"
+                style="@style/RecycleViewCommon"
+                android:background="?main_bg"
+                app:isColorUi="true"
+                android:layout_marginTop="20dp"/>
         </LinearLayout>
     </ScrollView>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dip"
-        android:background="@color/ssxinxian7"/>
+        android:id="@+id/my_page_message_divider"
+        style="@style/my_page_item_divider"
+        android:background="?attr/divider_light_grey"
+        app:isColorUi="true" />
 
     <include layout="@layout/news_detail_bottom_bar" />
 

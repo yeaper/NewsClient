@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black">#000000</color>
+    <color name="bray">#787878</color>
     <color name="bg_color">#e7e7e7</color>
     <color name="status_color">#d5d5d5</color>
     <color name="white">#ffffff</color>
@@ -12,6 +13,7 @@
 
     <color name="heise1">#ff464646</color>
     <color name="action_comment_text">#fffafafa</color>
+    <color name="reply_bg">#882b91d5</color>
 
     <color name="ssxinhongse1">#fff85959</color>
     <color name="ssxinyejianhongse1">#ff935656</color>

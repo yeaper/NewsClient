@@ -101,9 +101,10 @@
             android:visibility="gone"/>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dip"
+            android:id="@+id/my_page_message_divider"
             android:layout_alignParentBottom="true"
-            android:background="@color/ssxinxian7"/>
+            style="@style/my_page_item_divider"
+            android:background="?attr/divider_light_grey"
+            app:isColorUi="true" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

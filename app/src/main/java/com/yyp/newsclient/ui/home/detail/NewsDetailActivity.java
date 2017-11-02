@@ -3,6 +3,7 @@ package com.yyp.newsclient.ui.home.detail;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,8 +17,10 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.yyp.newsclient.R;
 import com.yyp.newsclient.base.BaseActivity;
+import com.yyp.newsclient.interfaces.OnCommentItemClickListener;
+import com.yyp.newsclient.model.Comment;
 import com.yyp.newsclient.model.News;
-import com.yyp.newsclient.ui.adapter.NewsDetailAdapter;
+import com.yyp.newsclient.ui.adapter.CommentAdapter;
 import com.yyp.newsclient.util.ImageLoaderUtils;
 import com.yyp.newsclient.widget.NewsDetailHeaderView;
 import com.yyp.newsclient.widget.NewsDetailWebView;
@@ -51,8 +54,8 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
     NewsDetailWebView news_detail_content;
 
     RecyclerView recyclerView;
-    NewsDetailAdapter mAdapter;
-    protected List<News> mDatas = new ArrayList<>();
+    CommentAdapter mAdapter;
+    protected List<Comment> mDatas = new ArrayList<>();
 
     private News news;
     Animation animFadeIn;
@@ -75,6 +78,7 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void bindViews() {
+        recyclerView = (RecyclerView) findViewById(R.id.news_detail_recyclerview);
         // 动画
         animFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
@@ -82,10 +86,12 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        recyclerView = initCommonRecyclerView(createAdapter(), null);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(createAdapter());
         initToolbar();
         initHeaderView();
         loadContent();
+        loadCommData();
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -144,10 +150,19 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
 
             }
         });
+
+        mAdapter.setOnCommentItemClickListener(new OnCommentItemClickListener() {
+            @Override
+            public void onCommentItemClick(int position) {
+                // 弹出回复详情页
+                ReplyDialogFragment dialogFragment = ReplyDialogFragment.newInstance(mDatas.get(position));
+                dialogFragment.show(getSupportFragmentManager(), "REPLY");
+            }
+        });
     }
 
     protected BaseQuickAdapter createAdapter() {
-        return mAdapter = new NewsDetailAdapter(this, mDatas);
+        return mAdapter = new CommentAdapter(this, mDatas);
     }
 
     @Override
@@ -156,27 +171,64 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
             case R.id.back_btn:
                 finish();
                 break;
-
         }
     }
 
+    /**
+     * 初始化toolbar
+     */
     private void initToolbar(){
         ImageLoaderUtils.loadCircleAvatar(this, news.avatar, avatar);
         username.setText(news.source);
         fansCount.setText(news.fans_count+"粉丝");
     }
 
+    /**
+     * 初始化内容头布局
+     */
     private void initHeaderView(){
         headerView.setData(news);
     }
 
+    /**
+     * 初始化新闻内容
+     */
     private void loadContent(){
         news_detail_content.loadUrl(news.content_url);
         news_detail_content.setWebViewClient(new WebViewClient());
     }
 
-    private void getCommData(){
+    /**
+     * 加载评论内容
+     */
+    private void loadCommData(){
+        List<Comment> list = new ArrayList<>();
+        for(int i=0;i<8;i++){
+            Comment comment = new Comment();
+            comment.avatar = "http://img3.imgtn.bdimg.com/it/u=1530678619,3275431284&fm=27&gp=0.jpg";
+            comment.name = "阳光"+i;
+            comment.thumbsUpCount = i*10;
+            comment.content = "不然还是会超出边界";
+            comment.date = "2017-10-31T09:37:04";
+            comment.commentList = new ArrayList<>();
+            for(int j=0;j<10-i;j++){
+                Comment reply = new Comment();
+                reply.avatar = "http://up.qqjia.com/z/19/tu21125_15.jpg";
+                reply.name = "小龙哥"+i;
+                reply.thumbsUpCount = i*10;
+                reply.content = "如果不添加item的话，直接在使用涟漪效果的外部套一层layout也可以达到不超出边界的效果。关于这个方法，还有一个条件是外部的layout要添加background，不然还是会超出边界";
+                reply.date = "2017-10-31T09:37:04";
+                reply.commentList = new ArrayList<>();
 
+                comment.commentList.add(reply);
+            }
+
+            list.add(comment);
+        }
+        // 刷新数据
+        mDatas.clear();
+        mDatas.addAll(0, list);
+        mAdapter.notifyItemRangeChanged(0, list.size());
     }
 
     @Override
