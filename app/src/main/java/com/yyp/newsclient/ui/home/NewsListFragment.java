@@ -18,6 +18,7 @@ import com.yyp.newsclient.presenter.NewsListPresenter;
 import com.yyp.newsclient.ui.adapter.NewsAdapter;
 import com.yyp.newsclient.ui.home.detail.GalleryDetailActivity;
 import com.yyp.newsclient.ui.home.detail.NewsDetailActivity;
+import com.yyp.newsclient.ui.home.detail.VideoDetailActivity;
 import com.yyp.newsclient.util.ConstanceValue;
 import com.yyp.newsclient.view.INewsListView;
 import com.yyp.newsclient.widget.LoadingFlashView;
@@ -195,10 +196,11 @@ public class NewsListFragment extends BaseMvpFragment<NewsListPresenter> impleme
                         break;
                     case ConstanceValue.ARTICLE_GENRE_VIDEO:
                         //视频
+                        Intent goVideoDetail = new Intent(mContext, VideoDetailActivity.class);
                         bundle.clear();
                         bundle.putSerializable("news", mDatas.get(i));
-                        goNewsDetail.putExtras(bundle);
-                        mContext.startActivity(goNewsDetail);
+                        goVideoDetail.putExtras(bundle);
+                        mContext.startActivity(goVideoDetail);
                         break;
                 }
             }

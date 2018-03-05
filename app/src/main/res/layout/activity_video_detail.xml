@@ -1,7 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <cn.jzvd.JZVideoPlayerStandard
+            android:id="@+id/videoplayer"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"/>
+        <include layout="@layout/toolbar_common_transparent"/>
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/toolbar_center_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="?main_bg"
+        app:isColorUi="true">
 
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUserName"
+                style="@style/new_title"
+                android:layout_width="match_parent"
+                tools:text="作者"
+                android:textColor="?attr/font_color"
+                android:textSize="15sp"
+                app:isColorUi="true" />
+
+            <TextView
+                android:id="@+id/tvFansCount"
+                style="@style/new_title"
+                android:layout_width="match_parent"
+                android:layout_marginTop="2dp"
+                tools:text="0"
+                android:textColor="?attr/font_color2"
+                android:textSize="12sp"
+                app:isColorUi="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/shape_rectangle_blue"
+            android:text="@string/mine_tab_followings_title"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/video_detail_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?main_bg"
+        app:isColorUi="true"
+        android:layout_weight="1"/>
+
+    <include layout="@layout/news_detail_bottom_bar"/>
 </LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/main_bg"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/video_detail_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/font_color"
+        android:textSize="20sp"
+        app:isColorUi="true"
+        tools:text="珍藏了得得"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/video_detail_header_play_times"
+        style="@style/new_title"
+        android:layout_width="match_parent"
+        tools:text="0"
+        android:textColor="?attr/font_color2"
+        android:textSize="12sp"
+        app:isColorUi="true"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/video_detail_header_date"
+        style="@style/new_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        tools:text="时间"
+        android:textColor="?attr/font_color2"
+        android:textSize="12sp"
+        app:isColorUi="true" />
+
+    <LinearLayout
+        android:id="@+id/thumbs_up_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/thumbs_up_btn"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/ic_thumbs_up"
+            app:isColorUi="true"
+            android:layout_marginLeft="7dp"/>
+        <TextView
+            android:id="@+id/thumbs_up_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/bray"
+            android:text="0"
+            android:minEms="2"
+            app:isColorUi="true"
+            android:layout_marginLeft="3dp"/>
+    </LinearLayout>
+    <View
+        android:layout_marginTop="15dp"
+        style="@style/my_page_item_divider"
+        android:background="?attr/divider_light_grey"
+        app:isColorUi="true" />
+</LinearLayout>

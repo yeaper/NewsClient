@@ -57,6 +57,13 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
     CommentAdapter mAdapter;
     protected List<Comment> mDatas = new ArrayList<>();
 
+    @BindView(R.id.action_comment_count)
+    TextView action_comment_count;
+    @BindView(R.id.action_view_comment)
+    ImageView action_view_comment;
+    @BindView(R.id.action_favor)
+    ImageView action_favor;
+
     private News news;
     Animation animFadeIn;
     Animation animFadeOut;
@@ -159,6 +166,8 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
                 dialogFragment.show(getSupportFragmentManager(), "REPLY");
             }
         });
+        action_view_comment.setOnClickListener(this);
+        action_favor.setOnClickListener(this);
     }
 
     protected BaseQuickAdapter createAdapter() {
@@ -170,6 +179,17 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
         switch (view.getId()){
             case R.id.back_btn:
                 finish();
+                break;
+            case R.id.action_view_comment: // 点击消息提示按钮，进入评论区域
+                sv.scrollBy(getCommonLoc()[0], getCommonLoc()[1]-800);
+                toolbar_center_ll.setVisibility(View.VISIBLE);
+                break;
+            case R.id.action_favor:
+                if(action_favor.isSelected()){
+                    action_favor.setSelected(false);
+                }else{
+                    action_favor.setSelected(true);
+                }
                 break;
         }
     }
@@ -229,6 +249,18 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
         mDatas.clear();
         mDatas.addAll(0, list);
         mAdapter.notifyItemRangeChanged(0, list.size());
+
+        if(mDatas.size() > 0){
+            action_comment_count.setVisibility(View.VISIBLE);
+            action_comment_count.setText(mDatas.size()+"");
+        }
+    }
+
+    private int[] getCommonLoc(){
+        int[] loc = new int[2];
+        recyclerView.getLocationOnScreen(loc);
+
+        return loc;
     }
 
     @Override

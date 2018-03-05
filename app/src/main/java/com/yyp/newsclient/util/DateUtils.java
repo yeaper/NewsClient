@@ -88,7 +88,7 @@ public class DateUtils {
      */
     public static String toDateStr(Date date) {
         String str = "";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
         try {
             return sdf.format(date);
         } catch (Exception e) {
